@@ -6,11 +6,11 @@
 
   outputs = { self, notsodeep-src }: {
     overlay = self:
-      { pkgs, lib, stdenv, ... }: {
+      super@{ pkgs, lib, stdenv, ... }: {
         notsodeep = stdenv.mkDerivation {
           pname = "notsodeep";
+          version = "git";
           src = notsodeep-src;
-          
           buildInputs = with pkgs; [ libnetfilter_queue libnfnetlink ];
           installPhase = ''
             mkdir -p $out/bin
