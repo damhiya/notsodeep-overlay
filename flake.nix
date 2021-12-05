@@ -9,7 +9,7 @@
       super@{ pkgs, lib, stdenv, ... }: {
         notsodeep = stdenv.mkDerivation {
           pname = "notsodeep";
-          version = "git";
+          version = lib.mkIf (self ? rev) self.rev;
           src = notsodeep-src;
           buildInputs = with pkgs; [ libnetfilter_queue libnfnetlink ];
           installPhase = ''
