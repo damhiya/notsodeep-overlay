@@ -1,14 +1,15 @@
 {
   description = "notsodeep nix overlay";
 
-  inputs.notsodeep-src.url = "github:farukuzun/notsodeep";
+  inputs.notsodeep-src.url = "github:farukuzun/notsodeep/470532243bff92fd8314f3693c4748604078b484";
   inputs.notsodeep-src.flake = false;
 
   outputs = { self, notsodeep-src }: {
     overlay = self:
       super@{ pkgs, lib, stdenv, ... }: {
         notsodeep = stdenv.mkDerivation {
-          name = "notsodeep";
+          pname = "notsodeep";
+          version = "2019-05-29";
           src = notsodeep-src;
           buildInputs = with pkgs; [ libnetfilter_queue libnfnetlink ];
           installPhase = ''
