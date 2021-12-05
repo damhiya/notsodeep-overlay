@@ -8,7 +8,7 @@
     overlay = self:
       super@{ pkgs, lib, stdenv, ... }: {
         notsodeep = stdenv.mkDerivation {
-          pname = "notsodeep";
+          name = "notsodeep";
           src = notsodeep-src;
           buildInputs = with pkgs; [ libnetfilter_queue libnfnetlink ];
           installPhase = ''
